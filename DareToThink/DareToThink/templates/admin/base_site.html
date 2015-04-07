@@ -1,0 +1,15 @@
+<!--
+https://www.pythonanywhere.com/user/NuovoVesuvio/files/usr/local/lib/python3.4/dist-packages/django/contrib/admin
+-->
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Admin') }}{% endblock %}
+
+{% block branding %}
+<!--
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+-->
+{% include 'navbar.html' %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

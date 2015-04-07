@@ -1,0 +1,93 @@
+{% extends 'base_index.html' %}
+
+<!-- STYLE --------------------------------------------------------------------------------- -->
+{% block includes %}
+    {% load staticfiles %}
+
+    <style>
+
+
+        * {
+             -webkit-border-radius: 0;
+             -moz-border-radius: 0;
+             border-radius: 0;
+            }
+
+    #backgroundrow {
+     background: #CCCCCC;
+   }
+
+/*
+   #UserForm{
+        margin-top: 50px;
+       margin-left: 50px;
+   }
+  */
+
+
+    </style>
+{% endblock %}
+
+<!-- NAV BAR --------------------------------------------------------------------------------- -->
+{% block navblog %}
+    <li class="active"><a href="{% url 'userprofile_blog' %}">Blog</a></li>
+{% endblock %}
+
+<!-- JS --------------------------------------------------------------------------------- -->
+
+{% block script %}
+
+
+{% endblock %}
+
+<!-- NAVBAR ------------------------------------------------------------------------------- -->
+
+<!-- CONTAINER ------------------------------------------------------------------------------- -->
+
+{% block container %}
+
+
+    {% load i18n common %}
+
+<!--- CONTENTS -------------------------------------------------------------------------------------------->
+
+    <div class="row" id="backgroundrow">
+
+<!--- USER FORM -------------------------------------------------------------------------------------------->
+        <div class="well col-sm-4">
+
+
+            <div class="panel with-nav-tabs panel-default">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#UserProfileData" data-toggle="tab">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="UserProfileData">
+                            <table class = "table table-striped">
+                                {% if userofurl.userprofile.picture %}
+                                    <tr><td><img src="{{ MEDIA_URL }}profileimages/{{ userofurl.userprofile.picture }}" class="img-responsive"/></td></tr>
+                                {% else %}
+                                    <tr><td>Picture:</td><td></td></tr>
+                                {% endif %}
+                                <tr><td>Email:</td><td>{{ userofurl.email }}</td></tr>
+                                <tr><td>Name:</td><td>{{ userofurl.first_name }} {{ user.last_name }}</td></tr>
+                                <tr><td>Location:</td><td>{{ userofurl.userprofile.location }}</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<!--- POSTS -------------------------------------------------------------------------------------------->
+
+
+
+{% endblock %}

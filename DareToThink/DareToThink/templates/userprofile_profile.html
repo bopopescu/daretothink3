@@ -1,0 +1,117 @@
+{% extends 'base_index.html' %}
+
+<!-- STYLE --------------------------------------------------------------------------------- -->
+{% block includes %}
+    {% load staticfiles %}
+
+    <style>
+
+
+        * {
+             -webkit-border-radius: 0;
+             -moz-border-radius: 0;
+             border-radius: 0;
+            }
+
+    #backgroundrow {
+     background: #CCCCCC;
+   }
+
+/*
+   #UserForm{
+        margin-top: 50px;
+       margin-left: 50px;
+   }
+  */
+
+
+    </style>
+{% endblock %}
+
+<!-- NAV BAR --------------------------------------------------------------------------------- -->
+{% block navblog %}
+    <li class="active"><a href="{% url 'userprofile_blog' %}">Blog</a></li>
+{% endblock %}
+
+<!-- JS --------------------------------------------------------------------------------- -->
+
+{% block script %}
+
+
+{% endblock %}
+
+<!-- NAVBAR ------------------------------------------------------------------------------- -->
+
+<!-- CONTAINER ------------------------------------------------------------------------------- -->
+
+{% block container %}
+
+
+    {% load i18n common %}
+
+<!--- CONTENTS -------------------------------------------------------------------------------------------->
+
+    <div class="row" id="backgroundrow">
+
+<!--- USER FORM -------------------------------------------------------------------------------------------->
+        <div class="col-sm-4">
+
+
+            <div class="panel with-nav-tabs panel-default">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#UserProfileData" data-toggle="tab">Profile</a></li>
+                        <li><a href="#EditUserProfileData" data-toggle="tab">Edit</a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="UserProfileData">
+                            <table class = "table table-striped">
+                                {% if user.userprofile.picture %}
+                                    <tr><td><img src="{{ MEDIA_URL }}profileimages/{{ user.userprofile.picture }}" class="img-responsive"/></td></tr>
+                                {% else %}
+                                    <tr><td>Picture:</td><td></td></tr>
+                                {% endif %}
+                                {% if formdata %}
+                                    <tr><td>Email:</td><td>{{ formdata.email }}</td></tr>
+                                    <tr><td>Name:</td><td>{{ formdata.first_name }} {{ formdata.last_name }}</td></tr>
+                                {% else %}
+                                    <tr><td>Email:</td><td>{{ user.email }}</td></tr>
+                                    <tr><td>Name:</td><td>{{ user.first_name }} {{ user.last_name }}</td></tr>
+                                {% endif %}
+                                <tr><td>Location:</td><td>{{ user.userprofile.location }}</td></tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="EditUserProfileData">
+                            <form id='UserForm' enctype="multipart/form-data" action='/{{ user.first_name }}{{ user.last_name }}/' method="POST">
+                                {% csrf_token %}
+                                {{ userprofileform.picture.errors }}
+                                {{ userprofileform.picture.label_tag }}
+                                {{ userprofileform.picture }} <br/>
+                                {% for field in userform %}
+                                    <div class="form-group">
+                                        {{ field.label_tag }}
+                                        {{ field }}
+                                    </div>
+                                {% endfor %}
+                                {{ userprofileform.location.label_tag }}
+                                {{ userprofileform.location }}
+                                <br />
+                                <input type="submit" value="Update" class="btn btn-success" />
+                            </form><br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<!--- POSTS -------------------------------------------------------------------------------------------->
+
+
+
+{% endblock %}

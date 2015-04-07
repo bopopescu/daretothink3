@@ -1,0 +1,16 @@
+{% extends "base_index.html" %}
+{% block title %}Logout{% endblock %}
+
+{% block logout %}
+    <li class="active"><a href="{% url 'userprofile_logout' %}"><span class="glyphicon glyphicon-share-alt"></span> Log out</a></li>
+{% endblock %}
+
+
+{% block container %}
+
+    <p>THIS IS THE LOGOUT PAGE</p>
+    <nav>
+        <a href="{% url 'indextemplate' %}">Home</a>
+        <a href="{% url 'admin:index' %}">Admin</a>
+    </nav>
+{% endblock %}

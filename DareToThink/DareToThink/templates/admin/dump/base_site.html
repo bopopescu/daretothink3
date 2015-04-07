@@ -1,0 +1,16 @@
+<!--
+https://www.pythonanywhere.com/user/NuovoVesuvio/files/usr/local/lib/python3.4/dist-packages/django/contrib/admin
+-->
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {{ title }} | {% trans 'Django site admin' %}
+{% endblock %}
+
+{% block branding %}
+    {% trans 'Django administration' %}
+{% endblock %}
+
+{% block nav-global %}
+{% endblock %}

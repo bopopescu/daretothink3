@@ -1,0 +1,116 @@
+{% extends 'base_index.html' %}
+
+<!-- Includes --------------------------------------------------------------------------------- -->
+{% block includes %}
+    <link rel="stylesheet" type="text/css" href="/static/indexstyle.css">
+        <style>
+        #bg_container{height:500px; overflow:hidden;}
+        #bg{width:100%; height:800px;}
+        #poo{position:absolute; top:0px; width:100%;}
+    </style>
+{% endblock %}
+
+<!-- JS --------------------------------------------------------------------------------- -->
+{% block script %}
+    <script type="text/javascript">
+        function cycleImages(){
+        var $active = $('#background_cycler .active');
+        var $next = ($('#background_cycler .active').next().length > 0) ? $('#background_cycler .active').next() : $('#background_cycler img:first');
+        $next.css('z-index',2);//move the next image up the pile
+	    $active.fadeOut(1500,function(){//fade out the top image
+	    $active.css('z-index',1).show().removeClass('active');//reset the z-index and unhide the image
+        $next.css('z-index',3).addClass('active');//make the next image the top one
+        });
+        }
+
+        $(window).load(function(){
+    		$('#background_cycler').fadeIn(1500);//fade the background back in once all the images are loaded
+    		  // run every 7s
+    		  setInterval('cycleImages()', 7000);
+        })
+    </script>
+
+    <script type="text/javascript">
+    $(window).load(function(){
+        $('#basicModal').modal('hide')
+    })
+    </script>
+
+{% endblock %}
+
+<!-- NAV BAR --------------------------------------------------------------------------------- -->
+
+
+<!-- BACKGROUND --------------------------------------------------------------------------------- -->
+{% block background %}
+    <div id="background_cycler" class = "row">
+        <script type="text/javascript">
+        $('#background_cycler').hide();//hide the background while the images load, ready to fade in later
+        </script>
+        <!--
+        <img class="active" src="/static/IMG_2167.JPG" alt=""/>
+        <img src="/static/Open Mic Night3.jpg" alt=""   />
+        <img src="/static/OldBooks.jpg" alt=""  />
+        -->
+    </div>
+{% endblock %}
+
+<!-- CONTAINER ------------------------------------------------------------------------------- -->
+
+{% block container %}
+
+    <div id="bg_container">
+        <iframe id="bg" src="//www.youtube.com/embed/CzVAw9DvMVA?autoplay=1&amp;controls=0&showinfo=0&rel=0" frameborder="0"></iframe>
+    </div>
+
+    <div class="jumbotron" id="poo">
+        {% include "carousel.html" %}
+    </div>
+{% endblock %}
+
+<!-- SIGN UP ------------------------------------------------------------------------------- -->
+
+{% block subcontainer1 %}
+
+{% endblock %}
+
+<!-- Block 2 ------------------------------------------------------------------------------- -->
+
+
+{% block subcontainer2 %}
+    <br/>
+    <div align="center" id="poo2">
+    <a href="#" class="btn btn-lg btn-success"
+    data-toggle="modal"
+    data-target="#basicModal">Register / login</a>
+
+        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="Hello" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                    <div class="modal-body">
+                        <h3>
+                            {% if user.is_authenticated %}
+                                <h2>Hello {{ user.username }}!</h2>
+                                {% include "loginform.html" %}
+                            {% else %}
+                                {% include "registerform.html" %}
+                            {% endif %}
+                            <button type="button" class="close" data-dismiss="modal"></button>
+                        </h3>
+                        {% load socialaccount %}
+                         <a href="{% provider_login_url "twitter" %}">Twitter</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block subcontainer3 %}
+
+{% endblock %}
+

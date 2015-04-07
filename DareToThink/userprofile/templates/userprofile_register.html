@@ -1,0 +1,56 @@
+{% extends "base_index.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block navregister %}
+    <li class="active"><a href="{% url 'userprofile_register' %}"><span class="glyphicon glyphicon-plus"></span> Sign up</a></li>
+{% endblock %}
+
+
+{% block container %}
+
+    <div class="container">
+
+<!-- FORM ---------------------------------------------------------------------------------------- -->
+
+
+        <div class="jumbotron col-md-6">
+            {% if registered %}
+                D2T says: <strong>thank you for registering!</strong>
+                <a href="">Return to the homepage.</a><br />
+            {% else %}
+                    {% include 'registerform.html' %}
+
+                    <!--
+                    {% for field in profile_form %}
+                        <fieldset class="form-group">
+                            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                            <input type="text" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                        </fieldset>
+                    {% endfor %}
+                    -->
+            {% endif %}
+        </div>
+<!-- INFO ---------------------------------------------------------------------------------------- -->
+
+        <div class="jumbotron col-md-6">
+        <h2>
+            Benefits
+        </h2>
+
+
+            <p>
+                By signing up you will be entitled to:
+            </p>
+            <p>
+                <ul>
+                    <li>A personal record of the books you've read, articles you've written, and more</li>
+                    <li>Interaction with other users</li>
+                    <li>A complete toolset to campaign and comment on the issues you care about</li>
+                </ul>
+            </p>
+
+    </div>
+{% endblock %}

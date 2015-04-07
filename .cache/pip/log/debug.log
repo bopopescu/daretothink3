@@ -1,0 +1,221 @@
+Collecting django-debug-toolbar
+  Downloading django_debug_toolbar-1.2.2-py2.py3-none-any.whl (202kB)
+Collecting sqlparse (from django-debug-toolbar)
+  Downloading sqlparse-0.1.14.tar.gz (55kB)
+Requirement already satisfied (use --upgrade to upgrade): django>=1.4.2 in /usr/local/lib/python3.3/dist-packages (from django-debug-toolbar)
+Installing collected packages: sqlparse, django-debug-toolbar
+  Running setup.py install for sqlparse
+    Fixing build/lib/sqlparse/exceptions.py build/lib/sqlparse/filters.py build/lib/sqlparse/formatter.py build/lib/sqlparse/__init__.py build/lib/sqlparse/utils.py build/lib/sqlparse/functions.py build/lib/sqlparse/lexer.py build/lib/sqlparse/tokens.py build/lib/sqlparse/pipeline.py build/lib/sqlparse/sql.py build/lib/sqlparse/keywords.py build/lib/sqlparse/engine/grouping.py build/lib/sqlparse/engine/filter.py build/lib/sqlparse/engine/__init__.py
+    Fixing build/lib/sqlparse/exceptions.py build/lib/sqlparse/filters.py build/lib/sqlparse/formatter.py build/lib/sqlparse/__init__.py build/lib/sqlparse/utils.py build/lib/sqlparse/functions.py build/lib/sqlparse/lexer.py build/lib/sqlparse/tokens.py build/lib/sqlparse/pipeline.py build/lib/sqlparse/sql.py build/lib/sqlparse/keywords.py build/lib/sqlparse/engine/grouping.py build/lib/sqlparse/engine/filter.py build/lib/sqlparse/engine/__init__.py
+    changing mode of build/scripts-3.3/sqlformat from 664 to 775
+    changing mode of /home/NuovoVesuvio/.local/bin/sqlformat to 775
+
+Successfully installed django-debug-toolbar-1.2.2 sqlparse-0.1.14
+Collecting django-debug-toolbar
+  Using cached django_debug_toolbar-1.2.2-py2.py3-none-any.whl
+Collecting sqlparse (from django-debug-toolbar)
+  Using cached sqlparse-0.1.14.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): django>=1.4.2 in /usr/local/lib/python3.4/dist-packages (from django-debug-toolbar)
+Installing collected packages: sqlparse, django-debug-toolbar
+  Running setup.py install for sqlparse
+    Fixing build/lib/sqlparse/exceptions.py build/lib/sqlparse/filters.py build/lib/sqlparse/formatter.py build/lib/sqlparse/__init__.py build/lib/sqlparse/utils.py build/lib/sqlparse/functions.py build/lib/sqlparse/lexer.py build/lib/sqlparse/tokens.py build/lib/sqlparse/pipeline.py build/lib/sqlparse/sql.py build/lib/sqlparse/keywords.py build/lib/sqlparse/engine/grouping.py build/lib/sqlparse/engine/filter.py build/lib/sqlparse/engine/__init__.py
+    Fixing build/lib/sqlparse/exceptions.py build/lib/sqlparse/filters.py build/lib/sqlparse/formatter.py build/lib/sqlparse/__init__.py build/lib/sqlparse/utils.py build/lib/sqlparse/functions.py build/lib/sqlparse/lexer.py build/lib/sqlparse/tokens.py build/lib/sqlparse/pipeline.py build/lib/sqlparse/sql.py build/lib/sqlparse/keywords.py build/lib/sqlparse/engine/grouping.py build/lib/sqlparse/engine/filter.py build/lib/sqlparse/engine/__init__.py
+    changing mode of build/scripts-3.4/sqlformat from 664 to 775
+    changing mode of /home/NuovoVesuvio/.local/bin/sqlformat to 775
+
+Successfully installed django-debug-toolbar-1.2.2 sqlparse-0.1.14
+Collecting django-tinymce
+  Downloading django-tinymce-1.5.3.tar.gz (2.4MB)
+Installing collected packages: django-tinymce
+  Running setup.py install for django-tinymce
+Successfully installed django-tinymce-1.5.3
+Collecting django-tinymce
+  Using cached django-tinymce-1.5.3.tar.gz
+Installing collected packages: django-tinymce
+  Running setup.py install for django-tinymce
+Successfully installed django-tinymce-1.5.3
+Collecting django-summernote
+  Downloading django-summernote-0.6.3.tar.gz (79kB)
+Requirement already satisfied (use --upgrade to upgrade): django in /usr/local/lib/python3.3/dist-packages (from django-summernote)
+Installing collected packages: django-summernote
+  Running setup.py install for django-summernote
+Successfully installed django-summernote-0.6.3
+Collecting django-summernote
+  Using cached django-summernote-0.6.3.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): django in /usr/local/lib/python3.4/dist-packages (from django-summernote)
+Installing collected packages: django-summernote
+  Running setup.py install for django-summernote
+    error: could not create '/usr/local/lib/python3.4/dist-packages/django_summernote': Permission denied
+    Complete output from command /usr/local/bin/python3.4 -c "import setuptools, tokenize;__file__='/tmp/pip-build-fpmwnaer/django-summernote/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-_sxl8t68-record/install-record.txt --single-version-externally-managed --compile:
+    running install
+    
+    running build
+    
+    running build_py
+    
+    creating build
+    
+    creating build/lib
+    
+    creating build/lib/django_summernote
+    
+    copying django_summernote/admin.py -> build/lib/django_summernote
+    
+    copying django_summernote/urls.py -> build/lib/django_summernote
+    
+    copying django_summernote/models.py -> build/lib/django_summernote
+    
+    copying django_summernote/tests.py -> build/lib/django_summernote
+    
+    copying django_summernote/settings.py -> build/lib/django_summernote
+    
+    copying django_summernote/__init__.py -> build/lib/django_summernote
+    
+    copying django_summernote/apps.py -> build/lib/django_summernote
+    
+    copying django_summernote/test_settings.py -> build/lib/django_summernote
+    
+    copying django_summernote/fields.py -> build/lib/django_summernote
+    
+    copying django_summernote/widgets.py -> build/lib/django_summernote
+    
+    copying django_summernote/views.py -> build/lib/django_summernote
+    
+    creating build/lib/django_summernote/static
+    
+    creating build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/jquery.ui.widget.js -> build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/summernote.min.js -> build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/jquery.fileupload.js -> build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/django_summernote_inplace.css -> build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/SOURCE -> build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/django_summernote.css -> build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/jquery.iframe-transport.js -> build/lib/django_summernote/static/django_summernote
+    
+    copying django_summernote/static/django_summernote/summernote.css -> build/lib/django_summernote/static/django_summernote
+    
+    creating build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-cs-CZ.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-sr-RS-Latin.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-es-EU.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-tr-TR.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-sr-RS.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-ru-RU.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-pl-PL.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-ro-RO.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-nl-NL.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-he-IL.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-hu-HU.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-th-TH.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-zh-TW.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-ko-KR.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-vi-VN.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-id-ID.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-de-DE.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-ca-ES.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-nb-NO.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-fr-FR.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-ja-JP.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-uk-UA.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-it-IT.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-zh-CN.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-sl-SI.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-es-ES.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-sv-SE.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-sk-SK.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-da-DK.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-ar-AR.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-fi-FI.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-fa-IR.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    copying django_summernote/static/django_summernote/lang/summernote-pt-BR.js -> build/lib/django_summernote/static/django_summernote/lang
+    
+    creating build/lib/django_summernote/static/django_summernote/plugin
+    
+    copying django_summernote/static/django_summernote/plugin/summernote-ext-fontstyle.js -> build/lib/django_summernote/static/django_summernote/plugin
+    
+    copying django_summernote/static/django_summernote/plugin/summernote-ext-video.js -> build/lib/django_summernote/static/django_summernote/plugin
+    
+    creating build/lib/django_summernote/templates
+    
+    creating build/lib/django_summernote/templates/django_summernote
+    
+    copying django_summernote/templates/django_summernote/widget_inplace.html -> build/lib/django_summernote/templates/django_summernote
+    
+    copying django_summernote/templates/django_summernote/upload_attachment.json -> build/lib/django_summernote/templates/django_summernote
+    
+    copying django_summernote/templates/django_summernote/widget_iframe_editor.html -> build/lib/django_summernote/templates/django_summernote
+    
+    copying django_summernote/templates/django_summernote/widget_iframe.html -> build/lib/django_summernote/templates/django_summernote
+    
+    running install_lib
+    
+    creating /usr/local/lib/python3.4/dist-packages/django_summernote
+    
+    error: could not create '/usr/local/lib/python3.4/dist-packages/django_summernote': Permission denied
+    
+    ----------------------------------------
+    Command "/usr/local/bin/python3.4 -c "import setuptools, tokenize;__file__='/tmp/pip-build-fpmwnaer/django-summernote/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-_sxl8t68-record/install-record.txt --single-version-externally-managed --compile" failed with error code 1 in /tmp/pip-build-fpmwnaer/django-summernote
+Collecting django-summernote
+  Using cached django-summernote-0.6.3.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): django in /usr/local/lib/python3.4/dist-packages (from django-summernote)
+Installing collected packages: django-summernote
+  Running setup.py install for django-summernote
+Successfully installed django-summernote-0.6.3
+Requirement already satisfied (use --upgrade to upgrade): Pillow in /usr/local/lib/python3.3/dist-packages
+Requirement already satisfied (use --upgrade to upgrade): Pillow in /usr/local/lib/python3.4/dist-packages
+Collecting django-filebrowser
+  Downloading django-filebrowser-3.5.7.tar.gz (2.6MB)
+Collecting django-grappelli<2.5.99,>=2.4 (from django-filebrowser)
+  Downloading django-grappelli-2.5.6.tar.gz (2.2MB)
+Installing collected packages: django-grappelli, django-filebrowser
+  Running setup.py install for django-grappelli
+  Running setup.py install for django-filebrowser
+Successfully installed django-filebrowser-3.5.7 django-grappelli-2.5.6
+Collecting django-filebrowser
+  Using cached django-filebrowser-3.5.7.tar.gz
+Collecting django-grappelli<2.5.99,>=2.4 (from django-filebrowser)
+  Using cached django-grappelli-2.5.6.tar.gz
+Installing collected packages: django-grappelli, django-filebrowser
+  Running setup.py install for django-grappelli
+  Running setup.py install for django-filebrowser
+Successfully installed django-filebrowser-3.5.7 django-grappelli-2.5.6

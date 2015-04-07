@@ -1,0 +1,40 @@
+<div class = "row">
+                <nav class="navbar navbar-inverse navbar-fixed-top" id="topnavbar">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            {% block navindex %} <a class="navbar-brand" href="{% url 'indextemplate' %}">Dare To Think</a> {% endblock %}
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+
+
+                            <ul class="nav navbar-nav">
+                                {% block navresearch %}<li><a href="#">Research </a></li>{% endblock %}
+                                {% block navblog %}<li><a href="{% url 'userprofile_blog' %}">Blog</a></li>{% endblock %}
+                                {% block navabout %}<li><a href="{% url 'about' %}">About</a></li>{% endblock %}
+                            </ul>
+
+
+
+                            <ul class="nav navbar-nav navbar-right">
+
+                                {% if user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        {% block navadmin %}<li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-flag"></span> Admin</a></li>{% endblock %}
+                                    {% endif %}
+                                    {% block navprofile %}<li><a href="{{ user.first_name }}{{user.last_name}}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>{% endblock %}
+                                    {% block navlogout %}<li><a href="{% url 'userprofile_logout' %}"><span class="glyphicon glyphicon-share-alt"></span> Log out</a></li>{% endblock %}
+                                {% else %}
+                                    {% block navlogin %}<li><a href="{% url 'userprofile_login' %}"><span class="glyphicon glyphicon-chevron-right"></span> Log in</a></li>{% endblock %}
+                                    {% block navregister %}<li><a href="{% url 'userprofile_register' %}"><span class="glyphicon glyphicon-plus"></span> Sign up</a></li>{% endblock %}
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>

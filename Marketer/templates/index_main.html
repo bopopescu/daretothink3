@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> {% block title %}Connectio{% endblock %} </title>
+        {% load static %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'index_main.css' %}">
+        {% block includes %}
+            <style>
+                #mainbackground1{background-color: #E0FFFF;}
+                #mainbackground2{position:relative; background-color: #E0FFFF; text-align: center;}
+                #BigQuote{position:absolute; top:40px; width:100%; background-color: transparent; text-align: center; color: #FFF;}
+                #bg_container{height:200px; overflow:hidden; top:0px;}
+                #bg{width:100%; height:200px; top:0px;}
+
+                #pcenter{text-align: center;}
+                #section_top{position:absolute; top:0px;}
+                #section_tabs{position:absolute; top:220px; width:100%; background-color: #E0FFFF; min-height:250px;}
+
+                #EmailPic{height:60%; width:60%;}
+                #LogoPic{height:70%; width:70%;}
+
+
+
+           </style>
+        {% endblock %}
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1">
+
+<!-- JS -------------------------------------------------------------------------->
+        {% block script %}
+        {% endblock %}
+
+        <script>
+            $(document).ready(function(){
+                $(document.body).css('padding-top', $('#topnavbar').height());
+                $(window).resize(function(){
+                    $(document.body).css('padding-top', $('#topnavbar').height());
+                    });
+                });
+        </script>
+    </head>
+
+
+<!-- BODY -------------------------------------------------------------------------->
+<!-- NAVBAR -------------------------------------------------------------------------->
+    <body>
+        <div class = "container-fluid" id="mainbackground1">
+            <div class = "row">
+                <div id="bg_container">
+                    <iframe id="bg" src="//www.youtube.com/embed/Jr7FMZv6gTE?autoplay=1&amp;controls=0&showinfo=0&rel=0" frameborder="0"></iframe>
+                </div>
+                <br />
+            </div>
+
+            <div class="row" id="BigQuote">
+                <h1>Connect with potential customers</h1>
+            </div>
+
+<!-- CONTAINER 1 -------------------------------------------------------------------------->
+            <div class = "row" id="section_tabs">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    {% load staticfiles %}
+                    <img src="{% static "EmailPic.png" %}" id="EmailPic"/>
+                    <br/>
+                    <img src="{% static "Logo.png" %}" id="LogoPic"/>
+                </div>
+                <div class="col-md-7">
+                    <div class="panel with-nav-tabs panel-info">
+                        <div class="panel-heading">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab1default" data-toggle="tab">Introduction</a></li>
+                                    <li><a href="#tab2default" data-toggle="tab">About</a></li>
+                                    <li><a href="#tab3default" data-toggle="tab">Track Record</a></li>
+                                    <li><a href="#tab4default" data-toggle="tab">Contact</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" data-toggle="dropdown">Case studies<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#tab5default" data-toggle="tab">Client 1</a></li>
+                                            <li><a href="#tab6default" data-toggle="tab">Client 2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="panel-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="tab1default">Connectio enables you to quickly message all the important people in your industry.<br/><br/> This might mean telling thousands of potential customers about your latest product or event, for example. We have the contacts, all you have to do is message them!</div>
+                                <div class="tab-pane fade" id="tab2default">Connectio is a family run busines founded by the Faruq family. We...</div>
+                                <div class="tab-pane fade" id="tab3default">Our Track Record...</div>
+                                <div class="tab-pane fade" id="tab4default">You can contact us on...</div>
+                                <div class="tab-pane fade" id="tab5default">xxx</div>
+                                <div class="tab-pane fade" id="tab6default">yyy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+
+<!-- NEXT -------------------------------------------------------------------------->
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
+
+

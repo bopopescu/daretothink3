@@ -1,0 +1,257 @@
+{% extends 'base_index.html' %}
+
+<!-- STYLE --------------------------------------------------------------------------------- -->
+{% block includes %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "blogstyle.css" %}">
+    <style>
+
+
+        * {
+             -webkit-border-radius: 0;
+             -moz-border-radius: 0;
+             border-radius: 0;
+            }
+
+    #carousel{
+        -webkit-border-radius: 0 !important;
+             -moz-border-radius: 0 !important;
+             border-radius: 0 !important;
+    }
+
+        table, tr {
+            width:100% !important;
+            border-spacing:0 !important;
+        }
+
+        td.warning {
+            width:10%; !important;
+        }
+        td.success {
+            width:10%; !important;
+        }
+        td.danger {
+            width:10%; !important;
+        }
+
+    #divcontents{
+        padding-left: 30px;
+    }
+
+  #love:nth-of-type(2n) {
+     background: #CCCCCC;
+   }
+
+    .bs-sidebar.affix {
+      width: 250px;
+      top: 25px;
+      left: 0px;
+    }
+
+    </style>
+{% endblock %}
+
+<!-- NAV BAR --------------------------------------------------------------------------------- -->
+{% block navblog %}
+    <li class="active"><a href="{% url 'userprofile_blog' %}">Blog</a></li>
+{% endblock %}
+
+<!-- JS --------------------------------------------------------------------------------- -->
+
+{% block script %}
+    <script>
+
+        function Both(ThePost,TheMotion){
+            InputPost(ThePost);
+            InputMotion(TheMotion);
+        }
+
+        function InputPost(ThePost) {
+            var elems = document.getElementsByName("post");
+            for(var i = 0; i < elems.length; i++) {
+                elems[i].value = ThePost;
+            }
+        }
+
+        function InputMotion(TheMotion) {
+            var elems = document.getElementsByName("motion");
+            for(var i = 0; i < elems.length; i++) {
+                elems[i].value = TheMotion;
+            }
+        }
+
+       // function InputMotion2(TheMotion2) {
+        //    var x = document.forms["myForm"]["fname"].value;
+       // }
+
+        $('#sidebar').affix({
+          offset: {
+            top: $('navbar').height()
+          }
+        });
+    </script>
+{% endblock %}
+
+<!-- NAVBAR ------------------------------------------------------------------------------- -->
+
+<!-- CONTAINER ------------------------------------------------------------------------------- -->
+
+{% block container %}
+
+
+    {% load i18n common %}
+
+<!--- CONTENTS -------------------------------------------------------------------------------------------->
+
+
+<div class="col-sm-2">
+    <div class="well bs-sidebar affix" id="sidebar">
+        <br />
+        <a href="{% url 'userprofile_newblog' %}" class="btn btn-success">Write new post</a>
+        <h3>Contents</h3>
+            <ul class="list-group">
+
+                {% for p in posts %}
+                    <li class="list-group-item">
+                        {{p.title}}
+                    </li>
+                {% endfor %}
+            </ul>
+    </div> <!--well bs-sidebar affix-->
+  </div> <!--col-sm-3-->
+
+
+
+<!--- POSTS -------------------------------------------------------------------------------------------->
+
+    {% for p in posts %}
+
+        <div class="row" id="love">
+            <br />
+            <div class="col-md-3", id="divcontents">
+
+            </div>
+            <div class="col-md-8">
+
+
+            <div class="well well-lg">
+                <h3>{{p.title}}</h3>
+                <p1><span style="color:grey">By {{p.author}}, {{p.date|date:"d.m.Y"}}</span></p1>
+                <br />
+                <p1>{{p.body}}</p1>
+            </div>
+
+<!--- MOTIONS AND COMMENTS -------------------------------------------------------------------------------------------->
+            <div class="panel-group" id="accordion">
+
+                <div class="panel panel-default" id="accordion">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#NewMotion{{p.id}}">
+                                >> Write a new motion
+                            </a>
+                        </h4>
+                    </div>
+
+
+                    <div id="NewMotion{{p.id}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form id="MotionForm" action="/blog/" method="POST" onsubmit="InputPost({{p.id}})">
+                                {% csrf_token %}
+                                {{ motionform.title }}
+                                {{ motionform.post.as_hidden }}
+                                <br /> <br />
+                                {% if user.is_authenticated %}
+                                    <input type="submit" value="Submit" class="btn btn-success" />
+                                {% else %}
+                                    <a href="{% url 'userprofile_register' %}" class="btn btn-success">Log in to comment</a>
+                                {% endif %}
+                            </form><br/>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                {% for motion in motions %}
+                    {% if p.id == motion.post.id %}
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{motion.id}}">
+                                        {{ motion.title }} <span style="color:grey"> by {{ motion.author }}</span>
+                                        <!--<span style="text-align:right">{{</span>-->
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse{{motion.id}}" class="panel-collapse collapse">
+                                {% for comment in comments %}
+                                    {% if p.id == comment.post.id %}
+                                        {% if motion.id == comment.motion.id %}
+                                            <table class = "table">
+                                                <tbody>
+                                                    <tr>
+                                                        {% if comment.yes == 1 %}
+                                                            <td class="success" id="smallcol">{{ comment.author }}</td>
+                                                            <td class="success">{{ comment.body }}</td>
+                                                        {% elif comment.maybe == 1 %}
+                                                            <td class="warning" id="smallcol">{{ comment.author }}</td>
+                                                            <td class="warning">{{ comment.body }}</td>
+                                                        {% else %}
+                                                            <td class="danger" id="smallcol">{{ comment.author }}</td>
+                                                            <td class="danger">{{ comment.body }}</td>
+                                                        {% endif %}
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                <br />
+                                Comment here:
+                                <form id="CommentForm" action="/blog/" method="POST" onsubmit="Both({{p.id}},{{motion.id}})">
+                                    {% csrf_token %}
+                                    {{ commentform.body }}
+                                    {{ commentform.post.as_hidden }}
+                                    {{ commentform.motion.as_hidden }}
+                                    <br />
+                                    {% if user.is_authenticated %}
+                                        <input type="submit" name="yes" value="Yes" class="btn btn-success" />
+                                        <input type="submit" name="maybe" value="Maybe" class="btn btn-warning" />
+                                        <input type="submit" name="no" value="No" class="btn btn-danger" />
+                                    {% else %}
+                                        <a href="{% url 'userprofile_register' %}" class="btn btn-success">Log in to comment</a>
+                                    {% endif %}
+                                </form><br/>
+                            </div>
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+
+                    <br/>
+
+            </div>
+
+
+<!-------  FORMS ------------------------------------------------>
+
+<!--
+            <div class="col-md-2">
+                <div class="well well-sm">
+                    <h2>Contents</h2>
+                    {% for p in posts %}
+                        <p>{{p.title}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+-->
+
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

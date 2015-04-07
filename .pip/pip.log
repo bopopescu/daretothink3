@@ -1,0 +1,18 @@
+------------------------------------------------------------
+/usr/local/bin/pip3.4 run on Wed Jan 14 14:47:09 2015
+Downloading/unpacking requirements-txt
+  Could not find download directory
+Cleaning up...
+  Removing temporary dir /tmp/pip_build_NuovoVesuvio...
+Could not find or access download directory './jango-allauth'
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/pip/basecommand.py", line 122, in main
+    status = self.run(options, args)
+  File "/usr/local/lib/python3.4/dist-packages/pip/commands/install.py", line 278, in run
+    requirement_set.prepare_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python3.4/dist-packages/pip/req.py", line 1153, in prepare_files
+    location = req_to_install.build_location(self.build_dir, not self.is_download)
+  File "/usr/local/lib/python3.4/dist-packages/pip/req.py", line 1022, in is_download
+    % display_path(self.download_dir))
+pip.exceptions.InstallationError: Could not find or access download directory './jango-allauth'

@@ -1,0 +1,20 @@
+{% extends "base_index.html" %}
+{% block title %}Log in{% endblock %}
+
+{% block navlogin %}
+    <li class="active"><a href="{% url 'userprofile_login' %}"><span class="glyphicon glyphicon-chevron-right"></span> Log in</a></li>
+{% endblock %}
+
+{% block container %}
+
+    <div class="hero-unit">
+        <div class="container col-md-6">
+            <div class="form-group">
+                <h2>Log in to D2T</h2>
+                {% include "loginform.html" %}
+            </div>
+            <br />
+        </div>
+    </div>
+
+{% endblock %}
